@@ -27,7 +27,7 @@ function WeatherInfo({weatherData, fetchWeatherData}) {
       <View style={styles.logo}>
         <Image 
           style={styles.largeIcon}
-          source={{uri: `http://openweathermap.org/img/wn/${icon}.png`}}
+          source={{uri: `http://openweathermap.org/img/wn/${icon}@4x.png`}}
         />
         <Text style={styles.currentTemp}>{Math.round(temp)} °C</Text>
       </View>
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
-    color: 'ea6e4a',
-    marginTop: 10,
+    color: '#ea6e4a',
+    marginTop: 20,
   },
   logo: {
     flexDirection: 'row',

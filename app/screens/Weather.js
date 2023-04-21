@@ -4,9 +4,12 @@ import {
   Text,
   StyleSheet,
   Alert,
-  ActivityIndicator
+  ActivityIndicator,
+  ScrollView,
+  RefreshControl
 } from 'react-native';
 import WeatherInfo from './WeatherInfo';
+import Emoji from 'react-native-emoji';
 
 const API_KEY = '395655f64ad6c87bd2da20deb6929b79'
 
@@ -42,18 +45,29 @@ function Weather() {
   } else if (weatherData === null) {
     return (
       <View style={styles.container}>
-        <Text>City not found</Text>
+        <Text style={styles.error}>City not found <Emoji name="disappointed" style={{fontSize: 20}} /></Text>
       </View>
     )
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView 
+      contentContainerStyle={styles.container}
+      refreshControl={
+        <RefreshControl
+          refreshing={!loaded}
+          onRefresh={() => fetchWeatherData('Kyiv')}
+        />
+      }
+    >
       <View style={styles.header}>
         <Text style={styles.title}>Weather today</Text>
       </View>
-      <WeatherInfo weatherData={weatherData} fetchWeatherData={fetchWeatherData} />
-    </View>
+      {loaded && <WeatherInfo weatherData={weatherData} fetchWeatherData={fetchWeatherData} />}
+      {weatherData === null && (
+      <Text style={styles.error}>City not found <Emoji name="disappointed" style={{fontSize: 20}} /></Text>
+      )}
+    </ScrollView>
   );
 }
 
@@ -74,6 +88,11 @@ const styles = StyleSheet.create({
     fontSize: 29,
     fontWeight: 'bold'
   },
+  error: {
+    fontSize: 20,
+    textAlign: 'center',
+    marginTop: 20,
+  }
 });
 
 
