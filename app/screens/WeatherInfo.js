@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   smallIcon: {
     height: 40,
     width: 40,
-    borderRadius: 40/2,
+    borderRadius: 20,
     marginLeft: 50,
   },
   infoText: {

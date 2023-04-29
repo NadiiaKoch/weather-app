@@ -27,7 +27,7 @@ function WelcomeScreen() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: 'lightgray',
+    backgroundColor: 'lightgrey',
     justifyContent: 'flex-end',
     alignItems: 'center'
   },
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     width: '60%',
     height: 60,
     backgroundColor: '#e96e50',
-    borderRadius: '15',
+    borderRadius: 15,
     marginBottom: '20%' ,
     alignItems: 'center',
     justifyContent: 'center'

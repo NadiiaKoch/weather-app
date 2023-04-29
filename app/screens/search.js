@@ -38,8 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginHorizontal: 10,
     paddingHorizontal: 10,
-    backgroundColor: 'lightgray'
-
+    backgroundColor: 'lightgrey'
   }
 })
 
